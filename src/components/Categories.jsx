@@ -30,7 +30,6 @@ export default function Categories() {
             <li key={part.id || part}>{part}</li>
           ))}
         </ul>
-        {bodyParts}
       </div>
 
       <h1> {process.env.REACT_APP_CONTENT}</h1>
