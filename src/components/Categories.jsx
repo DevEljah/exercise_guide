@@ -1,38 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Box, Grid } from "@mui/material";
+import BodyPart from "./BodyPart";
+//import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 
-import { options, fetchData } from "../utils/dataFetch";
-
-export default function Categories() {
-  const [bodyParts, setBodyParts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://exercisedb.p.rapidapi.com/exercises/bodyPartList", options)
-      .then((response) => response.json())
-      .then((response) => setBodyParts(response))
-      .catch((err) => console.error(err));
-    /* const fetchExerciesesData = async () => {
-      const bodyPartsData = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
-        options
-      );
-      setBodyParts(["all", ...bodyPartsData]);
-    };
-
-    fetchExerciesesData(); */
-  }, []);
-
+const Categories = ({ data, bodyPart, setBodyPart }) => {
   return (
-    <>
-      <div>
-        render
-        <ul>
-          {bodyParts.map((part) => (
-            <li key={part.id || part}>{part}</li>
-          ))}
-        </ul>
-      </div>
-
-      <h1> {process.env.REACT_APP_CONTENT}</h1>
-    </>
+    <div>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        gap="14px"
+      >
+        {data.map((item) => (
+          <Box
+            key={item.id || item}
+            itemID={item.id || item}
+            title={item.id || item}
+          >
+            <BodyPart
+              item={item}
+              bodyPart={bodyPart}
+              setBodyPart={setBodyPart}
+            />
+          </Box>
+        ))}
+      </Grid>
+    </div>
   );
-}
+};
+
+export default Categories;

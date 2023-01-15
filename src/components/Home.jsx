@@ -2,7 +2,7 @@ import React from "react";
 
 import Navbar from "./Navbar";
 import { Box, Typography } from "@mui/material";
-import Categories from "./Categories";
+import SearchExercises from "./SearchExercises";
 
 function Home() {
   return (
@@ -30,7 +30,7 @@ function Home() {
         Sweat, Smile and Repeat <br />
         Cheack out the most effective exercises
       </Typography>
-      <Categories />
+      <SearchExercises />
     </>
   );
 }
