@@ -1,42 +1,45 @@
-import * as React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { Stack } from "@mui/material";
 
-import { AppBar, Box, Toolbar, Typography, IconButton } from "@mui/material";
-/* import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton"; */
-import MenuIcon from "@mui/icons-material/Menu";
-import { Stack } from "@mui/system";
+import Logo from "../assets/images/Logo.png";
 
-export default function Navbar() {
+const Navbar = () => {
   return (
-    <>
-      <Stack
-        style={{ textDecoration: "none", color: "#fff", height: 100 }}
-        direction="row"
-        fontWeight="bold"
-        fontSize="20px"
-        fontStyle="italic"
-        alignItems="center"
-        spacing={8}
-      >
-        <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
-          Logo
-        </Link>
-        <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
+    <Stack
+      direction="row"
+      justifyContent="space-around" // bc of none => no sence
+      sx={{
+        gap: { sm: "122px", sx: "40px" },
+        mt: { sm: "32px", sx: "20px" },
+        justifyContent: "none",
+      }}
+      px="20px"
+    >
+      <Link>
+        <img
+          src={Logo}
+          alt="logo"
+          style={{ width: "48px", height: "48px", margin: "0 20px" }}
+        />
+      </Link>
+      <Stack direction="row" gap="40px" fontSize="24px" alignItems="flex-end">
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
+            color: "#fff",
+            borderBottom: "3px solid #FF2625",
+          }}
+        >
           Home
         </Link>
-        <Link to="/exercises" style={{ textDecoration: "none", color: "#fff" }}>
+        <a href="#exercises" style={{ textDecoration: "none", color: "#fff" }}>
           Exercises
-        </Link>
+        </a>
       </Stack>
-    </>
+    </Stack>
   );
-}
+};
 
-{
-  /* <Link to="/">Home</Link>
-<Link to="/exercises">Exercises</Link> */
-}
+export default Navbar;
