@@ -40,7 +40,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       setExercises(exercisesData);
     };
     fetchExerciesesData();
-  }, [bodyPart]); // "[bodyPart]" >> recall this anytime "bodyPart" changes
+  }); // "[bodyPart]" >> recall this anytime "bodyPart" changes
 
   // console.log(exercises);
 
